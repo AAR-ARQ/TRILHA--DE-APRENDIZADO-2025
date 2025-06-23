@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Auto Arremate® / Arremaq 3.0 - Unificado</title>
+    <title>Portal Auto Arremate® / Arremaq 3.0 - Unificado (Capa e Índices)</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome for icons -->
@@ -349,13 +349,122 @@
         html[data-theme='dark'] .valor-card-title {
              color: var(--text-headings-dark-portal);
         }
-        .valor-card-text {
+.valor-card-text {
             font-size: 0.9rem;
             line-height: 1.6;
             color: var(--text-body-light-portal);
         }
         html[data-theme='dark'] .valor-card-text {
              color: var(--text-body-dark-portal);
+        }
+
+        /* Card Styles (PDGC & Superpower) */
+        .pdgc-card, .superpower-card, .super-power-card {
+            background-color: var(--bg-content-light-portal);
+            border: 1px solid var(--border-color-light-portal);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-main);
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+        html[data-theme='dark'] .pdgc-card,
+        html[data-theme='dark'] .superpower-card,
+        html[data-theme='dark'] .super-power-card {
+            background-color: var(--bg-content-dark-portal);
+            border-color: var(--border-color-dark-portal);
+        }
+        .pdgc-card:hover, .superpower-card:hover, .super-power-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--aa-green);
+        }
+        html[data-theme='dark'] .pdgc-card:hover,
+        html[data-theme='dark'] .superpower-card:hover,
+        html[data-theme='dark'] .super-power-card:hover {
+            border-color: var(--aa-green-lighter);
+        }
+        .pdgc-emoji, .superpower-emoji, .super-power-icon {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: var(--aa-green);
+            line-height: 1;
+        }
+        html[data-theme='dark'] .pdgc-emoji,
+        html[data-theme='dark'] .superpower-emoji,
+        html[data-theme='dark'] .super-power-icon {
+            color: var(--aa-green-lighter);
+        }
+        .pdgc-title, .superpower-title, .super-power-title {
+            font-family: var(--font-headings-portal);
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-headings-light-portal);
+            line-height: 1.4;
+        }
+        html[data-theme='dark'] .pdgc-title,
+        html[data-theme='dark'] .superpower-title,
+        html[data-theme='dark'] .super-power-title {
+            color: var(--text-headings-dark-portal);
+        }
+        .pdgc-description, .superpower-description, .super-power-text {
+            font-size: 0.78rem;
+            line-height: 1.6;
+            color: var(--text-body-light-portal);
+            margin-top: auto;
+        }
+        html[data-theme='dark'] .pdgc-description,
+        html[data-theme='dark'] .superpower-description,
+        html[data-theme='dark'] .super-power-text {
+            color: var(--text-body-dark-portal);
+        }
+
+        /* Highlight Box for Arremaq */
+        .highlight-box {
+            background-image: linear-gradient(45deg, var(--arremaq-orange-pastel), var(--arremaq-orange-lighter));
+            border-radius: var(--radius-xl);
+            padding: 2.5rem;
+            margin-top: 3rem;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            border: 2px solid var(--arremaq-orange-darker);
+        }
+        html[data-theme='dark'] .highlight-box {
+            background-image: linear-gradient(45deg, var(--arremaq-orange-darkest), #4b2a00);
+            border-color: var(--arremaq-orange-text-dark-theme);
+        }
+        .highlight-box .highlight-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--arremaq-orange-darker);
+        }
+        html[data-theme='dark'] .highlight-box .highlight-icon {
+            color: var(--arremaq-orange-text-dark-theme);
+        }
+        .highlight-box .highlight-title {
+            font-family: var(--font-headings-portal);
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--arremaq-orange-darkest);
+        }
+        html[data-theme='dark'] .highlight-box .highlight-title {
+            color: var(--arremaq-orange-lighter);
+        }
+        .highlight-box .highlight-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--arremaq-orange-darkest);
+            text-align: left;
+            max-width: 70ch;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        html[data-theme='dark'] .highlight-box .highlight-text {
+            color: var(--arremaq-orange-lighter);
         }
         
         /* Botões de Utilidade */
@@ -639,22 +748,184 @@
 
         <!-- Placeholders para os demais módulos -->
         <section id="mod2-content-section" class="playbook-sub-section hidden">
-            <div class="container mx-auto">
+            <div class="container mx-auto px-4">
                 <button class="btn-voltar-secao backToManualPitStopDetalhesBtn mb-10 text-sm">
                     <i class="fas fa-arrow-left mr-2"></i> VOLTAR AOS MÓDULOS
                 </button>
-                <h2 class="playbook-content-title text-center">MÓDULO 2: BOX DA IDENTIDADE AUTO ARREMATE (Em Breve)</h2>
-                <p class="text-lg text-center mt-8">Conteúdo para esta seção está em desenvolvimento. Volte em breve para mais atualizações!</p>
+                <h2 class="playbook-content-title text-center">
+                    <span class="emoji-original-color">🎨</span><strong>MÓDULO 2: BOX DA IDENTIDADE AUTO ARREMATE: CONSTRUINDO SUA MARCA!</strong>
+                </h2>
+                <div class="text-content-container playbook-text space-y-10 mt-8">
+                    <section id="intro-auto-arremate" data-aos="fade-up">
+                        <h3 class="playbook-section-title !text-center uppercase">
+                            <span class="emoji">🌟</span> <strong>A GARAGEM DOS CAMPEÕES: PERFORMANCE E INOVAÇÃO PARA VEÍCULOS LEVES!</strong>
+                        </h3>
+                        <p><span class="sentence-emoji">🏁</span>Prepare-se para entrar na pista de alta velocidade da Auto Arremate...</p>
+                        <p><span class="sentence-emoji">🏆</span>Desde a avaliação precisa com o nosso <strong>RaioX</strong> ...</p>
+                    </section>
+                    <hr class="my-10 border-t-2 border-gray-200 dark:border-gray-700">
+                    <section id="pilares-pdgc" data-aos="fade-up">
+                        <h3 class="playbook-section-title !text-center uppercase">
+                            <span class="emoji">✨</span> <strong>NOSSOS PILARES MÁGICOS (PDGC): A FÓRMULA SECRETA DA VITÓRIA!</strong>
+                        </h3>
+                        <p><span class="sentence-emoji">🔑</span>Apresentamos o conceito <strong>PDGC</strong>, a nossa fórmula secreta para turbinar seus resultados no mercado de veículos leves! <span class="sentence-emoji">💡</span>Cada letra é um componente crucial do nosso motor de sucesso, e juntas, elas formam a engrenagem perfeita que impulsiona nossos clientes à vitória:</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
+                            <div class="pdgc-card" data-aos="zoom-in" data-aos-delay="100">
+                                <div class="pdgc-emoji">🅿️</div>
+                                <h4 class="pdgc-title">PRECIFICAÇÃO INTELIGENTE</h4>
+                                <p class="pdgc-description">Use nossos dados de mercado para calibrar seus preços como um campeão, maximizando sua margem em cada negociação!</p>
+                            </div>
+                            <div class="pdgc-card" data-aos="zoom-in" data-aos-delay="200">
+                                <div class="pdgc-emoji">📢</div>
+                                <h4 class="pdgc-title">DIVULGAÇÃO TURBINADA</h4>
+                                <p class="pdgc-description">Seu veículo na vitrine certa! Alcance nacional em nosso Marketplace B2B e outros canais para vender mais rápido.</p>
+                            </div>
+                            <div class="pdgc-card" data-aos="zoom-in" data-aos-delay="300">
+                                <div class="pdgc-emoji">🛠️</div>
+                                <h4 class="pdgc-title">GESTÃO EFICIENTE</h4>
+                                <p class="pdgc-description">Controle total do seu estoque, vistorias digitais com RaioX e dashboards para decisões ágeis. Seu pit stop de comando!</p>
+                            </div>
+                            <div class="pdgc-card" data-aos="zoom-in" data-aos-delay="400">
+                                <div class="pdgc-emoji">💰</div>
+                                <h4 class="pdgc-title">COMERCIALIZAÇÃO VENCEDORA</h4>
+                                <p class="pdgc-description">Ferramentas e estratégias para fechar negócios mais rápido, com mais lucro e menos dor de cabeça. A bandeirada final!</p>
+                            </div>
+                        </div>
+                        <p class="mt-6"><span class="sentence-emoji">🏁</span>O PDGC é a essência do que a Auto Arremate entrega: uma solução <strong>completa e integrada</strong> que atua em todas as frentes para garantir que você cruze a linha de chegada sempre na frente!</p>
+                    </section>
+                    <hr class="my-10 border-t-2 border-gray-200 dark:border-gray-700">
+                    <section id="superpoderes-plataforma" data-aos="fade-up">
+                        <h3 class="playbook-section-title !text-center uppercase"><span class="emoji">🦸</span> OS SUPERPODERES DA NOSSA PLATAFORMA: SUA GARAGEM TECNOLÓGICA!</h3>
+                        <p class="text-center mb-8"><span class="sentence-emoji">🚀</span>Descubra as ferramentas que nos tornam imbatíveis e impulsionam o sucesso estrondoso dos nossos clientes na Auto Arremate. É aqui que a mágica da velocidade e da eficiência acontece!</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class="superpower-card" data-aos="fade-up">
+                                <div class="superpower-emoji">🔗</div>
+                                <h4 class="superpower-title">TUDO CONECTADO: A PLATAFORMA INTEGRADA!</h4>
+                                <p class="superpower-description">Imagine um ecossistema digital onde todas as ferramentas que você precisa estão interligadas, funcionando em perfeita harmonia para uma visão 360º do seu negócio.</p>
+                            </div>
+                            <div class="superpower-card" data-aos="fade-up" data-aos-delay="100">
+                                <div class="superpower-emoji">🔎</div>
+                                <h4 class="superpower-title">RAIOX: A VISÃO DE RAIO-X DIGITAL!</h4>
+                                <p class="superpower-description">Nossa ferramenta de inspeção digital permite um levantamento completo do estado do veículo, da lataria aos detalhes internos, garantindo a confiança para fechar negócios.</p>
+                            </div>
+                            <div class="superpower-card" data-aos="fade-up" data-aos-delay="200">
+                                <div class="superpower-emoji">➕</div>
+                                <h4 class="superpower-title">RAIOX+: O HISTÓRICO COMPLETO!</h4>
+                                <p class="superpower-description">Mergulhe fundo no passado do veículo, trazendo à tona informações cruciais como histórico de roubo, débitos, multas e sinistros para proteger seus negócios.</p>
+                            </div>
+                            <div class="superpower-card" data-aos="fade-up">
+                                <div class="superpower-emoji">📊</div>
+                                <h4 class="superpower-title">DASHBOARDS: DECISÕES NA VELOCIDADE DA LUZ!</h4>
+                                <p class="superpower-description">Acompanhe em tempo real os indicadores chave do seu negócio: giro de estoque, performance de vendas, precificação e muito mais, para decisões rápidas e inteligentes.</p>
+                            </div>
+                            <div class="superpower-card" data-aos="fade-up" data-aos-delay="100">
+                                <div class="superpower-emoji">🤝</div>
+                                <h4 class="superpower-title">MARKETPLACE B2B: O GRANDE PONTO DE ENCONTRO!</h4>
+                                <p class="superpower-description">Conecte-se ao maior universo de oportunidades B2B do Brasil. Publique seus veículos para uma audiência qualificada ou encontre o estoque que você precisa.</p>
+                            </div>
+                            <div class="superpower-card" data-aos="fade-up" data-aos-delay="200">
+                                <div class="superpower-emoji">⚡</div>
+                                <h4 class="superpower-title">COTAÇÃO RÁPIDA: AGILIDADE PURA!</h4>
+                                <p class="superpower-description">Precisa avaliar um veículo para compra ou trade-in? Obtenha uma estimativa precisa e baseada em dados de mercado em questão de segundos. Agilidade para suas negociações!</p>
+                            </div>
+                            <div class="superpower-card" data-aos="fade-up">
+                                <div class="superpower-emoji">🏷️</div>
+                                <h4 class="superpower-title">WHITE LABEL: SUA MARCA, NOSSA POTÊNCIA!</h4>
+                                <p class="superpower-description">Fortaleça sua marca com um portal de vendas online com sua identidade visual, mas com toda a tecnologia e robustez da plataforma Auto Arremate por trás.</p>
+                            </div>
+                            <div class="superpower-card" data-aos="fade-up" data-aos-delay="100">
+                                <div class="superpower-emoji">🔌</div>
+                                <h4 class="superpower-title">INTEGRAÇÕES: CONECTANDO SEU UNIVERSO!</h4>
+                                <p class="superpower-description">Nossa plataforma fala a língua do seu negócio! Integramos facilmente com os principais CRMs e ERPs do mercado, garantindo um fluxo de dados automático e sem gargalos.</p>
+                            </div>
+                            <div class="superpower-card" data-aos="fade-up" data-aos-delay="200">
+                                <div class="superpower-emoji">🔑</div>
+                                <h4 class="superpower-title">JORNADA PÓS-VENDA: FECHANDO COM CHAVE DE OURO!</h4>
+                                <p class="superpower-description">A venda não termina na assinatura! Oferecemos ferramentas para gerenciar a jornada pós-venda, garantindo a satisfação e fidelização do seu cliente.</p>
+                            </div>
+                            <div class="superpower-card" data-aos="fade-up">
+                                <div class="superpower-emoji">🔒</div>
+                                <h4 class="superpower-title">PERMISSÕES DE ACESSO: CONTROLE TOTAL!</h4>
+                                <p class="superpower-description">Segurança e controle são fundamentais. Defina quem pode ver e fazer o quê dentro da plataforma, garantindo que cada membro da equipe tenha o acesso certo.</p>
+                            </div>
+                            <div class="superpower-card" data-aos="fade-up" data-aos-delay="100">
+                                <div class="superpower-emoji">📦</div>
+                                <h4 class="superpower-title">MODELO DE OFERTAS EM LOTE: COMPRE MAIS, MAIS FÁCIL!</h4>
+                                <p class="superpower-description">Para quem busca volume com inteligência. Permite que compradores adquiram múltiplos veículos de uma só vez, com condições especiais e um processo simplificado.</p>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="highlight" data-aos="fade-up">
+                        <p class="text-lg md:text-xl font-semibold">
+                            <strong class="block text-xl md:text-2xl mb-2 font-bold text-center"><span class="emoji">📢</span> EQUIPE AUTO ARREMATE, PREPARAR PARA ACELERAR!</strong>
+                            <span class="initial-emoji">⭐</span> Vocês não vendem apenas uma plataforma...
+                        </p>
+                    </div>
+                </div>
+                <div class="navigation-buttons">
+                    <button class="btn-nav prev" disabled>❮ VOLTAR</button>
+                    <button class="btn-nav next">AVANÇAR ❯</button>
+                </div>
             </div>
         </section>
 
         <section id="mod3-content-section" class="playbook-sub-section hidden">
-            <div class="container mx-auto">
+            <div class="container mx-auto px-4">
                 <button class="btn-voltar-secao backToManualPitStopDetalhesBtn mb-10 text-sm">
                     <i class="fas fa-arrow-left mr-2"></i> VOLTAR AOS MÓDULOS
                 </button>
-                <h2 class="playbook-content-title text-center">MÓDULO 3: AUTO ARREMATE NA POLE POSITION (Em Breve)</h2>
-                <p class="text-lg text-center mt-8">Conteúdo para esta seção está em desenvolvimento. Volte em breve para mais atualizações!</p>
+                <h2 class="playbook-content-title text-center">
+                    <span class="emoji-original-color">🚜</span><strong>MÓDULO 3: ARREMAQ: A FORÇA BRUTA DOS GIGANTES DO AGRO E CONSTRUÇÃO!</strong>
+                </h2>
+                <div class="text-content-container playbook-text space-y-10 mt-8">
+                    <section id="intro-arremaq" data-aos="fade-up">
+                        <h3 class="playbook-section-title uppercase text-center">
+                            <span class="emoji">🏗️</span> <strong>O Território dos Titãs: Bem-vindo à Arremaq!</strong>
+                        </h3>
+                        <p class="max-w-4xl mx-auto text-left md:text-justify"><span class="sentence-emoji">🌟</span>Saudações, mestre construtor e gigante do agro!...</p>
+                        <p class="max-w-4xl mx-auto text-left md:text-justify"><span class="sentence-emoji">⚙️</span>Seja você uma concessionária de máquinas pesadas...</p>
+                    </section>
+                    <hr class="my-10 border-t-2 border-gray-200 dark:border-gray-700/50">
+                    <section id="solucoes-arremaq" data-aos="fade-up">
+                        <h3 class="playbook-section-title text-center uppercase">
+                            <span class="emoji">🛠️</span> <strong>Nosso Arsenal Pesado: Soluções Sob Medida</strong>
+                        </h3>
+                        <p class="mb-8 max-w-3xl mx-auto text-left md:text-justify"><span class="sentence-emoji">🔩</span>Conheça as ferramentas que fazem da Arremaq...</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                            <div class="super-power-card" data-aos="fade-up" data-aos-delay="100">
+                                <div class="super-power-icon">🔎</div>
+                                <h4 class="super-power-title">Raio-X para Máquinas</h4>
+                                <p class="super-power-text">Diagnósticos precisos com checklists detalhados e relatórios fotográficos completos, garantindo transparência total nas negociações.</p>
+                            </div>
+                            <div class="super-power-card" data-aos="fade-up" data-aos-delay="200">
+                                <div class="super-power-icon">🌐</div>
+                                <h4 class="super-power-title">Marketplace B2B para Gigantes</h4>
+                                <p class="super-power-text">Conectamos vendedores a compradores especializados em todo o Brasil, garantindo maior liquidez para seu estoque de máquinas pesadas.</p>
+                            </div>
+                            <div class="super-power-card" data-aos="fade-up" data-aos-delay="300">
+                                <div class="super-power-icon">📊</div>
+                                <h4 class="super-power-title">Dashboards de Performance</h4>
+                                <p class="super-power-text">Monitore sua frota, acompanhe o giro de estoque e tome decisões baseadas em dados para otimizar a rentabilidade dos seus ativos.</p>
+                            </div>
+                            <div class="super-power-card" data-aos="fade-up" data-aos-delay="400">
+                                <div class="super-power-icon">🔗</div>
+                                <h4 class="super-power-title">Integração com ERPs</h4>
+                                <p class="super-power-text">Sincronize nossa plataforma com seus sistemas de gestão para um fluxo de dados eficiente, evitando retrabalho e consolidando sua operação.</p>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="highlight-box" data-aos="zoom-in-up">
+                        <div class="highlight-icon">📢</div>
+                        <h4 class="highlight-title">EQUIPE ARREMAQ, FORÇA TOTAL!</h4>
+                        <p class="highlight-text">
+                            <span class="sentence-emoji">🏗️</span> Vocês não vendem apenas máquinas; vocês oferecem a <strong>força que constrói o futuro...</strong>
+                        </p>
+                    </div>
+                </div>
+                <div class="navigation-buttons">
+                    <button class="btn-nav prev" onclick="alert('Navegação para a seção anterior desativada neste exemplo.')">❮ VOLTAR</button>
+                    <button class="btn-nav next" onclick="alert('Navegação para a próxima seção desativada neste exemplo.')">AVANÇAR ❯</button>
+                </div>
             </div>
         </section>
 
@@ -698,43 +969,223 @@
             </div>
         </section>
 
-        <section id="mod8-content-section" class="playbook-sub-section hidden">
+        <!-- MÓDULO 8: A ARTE DA COMUNICAÇÃO ESTRATÉGICA -->
+        <section id="mod8-content-section" class="playbook-sub-section hidden" data-aos="fade-up">
             <div class="container mx-auto">
-                <button class="btn-voltar-secao backToManualPitStopDetalhesBtn mb-10 text-sm">
-                    <i class="fas fa-arrow-left mr-2"></i> VOLTAR AOS MÓDULOS
+                <button class="btn-voltar-secao backToManualPitStopDetalhesBtn mb-8 text-sm">
+                    <i class="fas fa-arrow-left mr-2"></i> VOLTAR AO GUIA ESTRATÉGICO
                 </button>
-                <h2 class="playbook-content-title text-center">MÓDULO 8: A ARTE DA COMUNICAÇÃO ESTRATÉGICA (Em Breve)</h2>
-                <p class="text-lg text-center mt-8">Conteúdo para esta seção está em desenvolvimento. Volte em breve para mais atualizações!</p>
+                <h2 class="playbook-content-title text-center"><span class="emoji-original-color">✍️</span><strong>A ARTE DA COMUNICAÇÃO ESTRATÉGICA <span class="text-aa-green-darker">AUTO ARREMATE</span> & <span class="text-arremaq-orange-darker">ARREMAQ</span>: MODELOS QUE CONVERTEM!</strong></h2>
+                <div class="text-content-container playbook-text space-y-10 mt-8">
+                    <section id="intro-comunicacao" data-aos="fade-up">
+                        <h3 class="playbook-section-title !text-center" style="text-transform: uppercase;">
+                            <span class="emoji">🗣️</span> <strong>O PODER DA PALAVRA NA PISTA: COMUNIQUE-SE COMO UM CAMPEÃO!</strong>
+                        </h3>
+                        <p><span class="sentence-emoji">🎙️</span>Nobre piloto das vendas, a palavra é uma das ferramentas mais poderosas do seu kit de box! <span class="sentence-emoji">🏆</span>A forma como nos comunicamos abre portas para novas pistas e constrói pontes de confiança. <span class="sentence-emoji">📖</span>Este capítulo é seu guia para uma comunicação eficaz, persuasiva e alinhada com a excelência da Auto Arremate® e Arremaq®.</p>
+                        <p><span class="sentence-emoji">🏁</span>Vamos explorar modelos de mensagens que convertem, termos que brilham como cromo polido e aqueles que devem ser evitados como óleo na pista. Prepare-se!</p>
+                    </section>
+
+                    <hr class="my-10 border-t-2 border-gray-200 dark:border-gray-700">
+
+                    <section id="termos-evitar-sugerir" data-aos="fade-up">
+                        <h3 class="playbook-section-title !text-center" style="text-transform: uppercase;">
+                            <span class="emoji">🚫</span> <strong>PIT STOP LINGUÍSTICO: TERMOS A EVITAR E SUGESTÕES DE OURO!</strong>
+                        </h3>
+                        <p class="mb-6"><span class="sentence-emoji">⚠️</span> Certas palavras podem transmitir uma imagem inadequada. Buscamos uma comunicação que inspire confiança e profissionalismo.</p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 communication-cards-grid">
+                            <div class="communication-card" data-aos="fade-up" data-aos-delay="50">
+                                <h4 class="card-title"><span class="emoji-avoid">😥</span> Termo a Evitar: "Probleminha"</h4>
+                                <p class="card-reason"><span class="emoji-why">🤔</span> Minimiza a preocupação do cliente.</p>
+                                <p class="card-suggestion"><span class="emoji-suggest">✨</span> Sugestão: "Situação a ser resolvida".</p>
+                            </div>
+                            <div class="communication-card" data-aos="fade-up" data-aos-delay="100">
+                                <h4 class="card-title"><span class="emoji-avoid">😥</span> Termo a Evitar: "Barato"</h4>
+                                <p class="card-reason"><span class="emoji-why">🤔</span> Pode depreciar o valor da solução.</p>
+                                <p class="card-suggestion"><span class="emoji-suggest">✨</span> Sugestão: "Investimento inteligente".</p>
+                            </div>
+                            <div class="communication-card" data-aos="fade-up" data-aos-delay="150">
+                                <h4 class="card-title"><span class="emoji-avoid">😥</span> Termo a Evitar: "Não sei"</h4>
+                                <p class="card-reason"><span class="emoji-why">🤔</span> Transmite despreparo.</p>
+                                <p class="card-suggestion"><span class="emoji-suggest">✨</span> Sugestão: "Vou verificar essa informação".</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <hr class="my-10 border-t-2 border-gray-200 dark:border-gray-700">
+
+                    <section id="modelos-comunicacao" data-aos="fade-up">
+                        <h3 class="playbook-section-title !text-center" style="text-transform: uppercase;">
+                            <span class="emoji">📜</span> <strong>MANUAIS DE BORDO: RESPOSTAS PADRÃO</strong>
+                        </h3>
+                        <p class="mb-6"><span class="sentence-emoji">📄</span> Ter modelos de resposta agiliza a comunicação e garante consistência. <strong>Personalize sempre</strong> para cada cliente.</p>
+
+                        <div class="space-y-5">
+                            <details class="interactive-section group" data-aos="fade-up" data-aos-delay="100">
+                                <summary class="interactive-summary-obj">
+                                    <strong class="text-lg font-semibold text-blue-600 dark:text-blue-300 group-open:text-blue-700 dark:group-open:text-blue-200 transition-colors">
+                                        <span class="emoji mr-2">📧</span> E-MAIL DE PRIMEIRO CONTATO
+                                    </strong>
+                                    <i class="fas fa-chevron-down text-blue-500 dark:text-blue-400 transform transition-transform duration-300 group-open:rotate-180"></i>
+                                </summary>
+                                <div class="interactive-content p-5 border-t border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-300 space-y-2 text-sm leading-relaxed">
+                                    <p><strong>Assunto:</strong> <span class="text-blue-700 dark:text-blue-300">Sua Parada Estratégica no Box da Auto Arremate®!</span></p>
+                                    <p>Olá [Nome do Contato], aqui é o [Seu Nome] da Auto Arremate®.</p>
+                                    <p>Vi que você acessou nosso material e gostaria de entender melhor seus desafios para que possamos turbinar seus resultados.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </section>
+
+                    <div class="highlight mt-10 highlight-yellow" data-aos="fade-up">
+                        <p class="text-lg md:text-xl text-yellow-900 dark:text-yellow-100">
+                            <strong class="block text-2xl md:text-3xl mb-4 font-bold text-center tracking-wider"><span class="emoji">🏆</span> COMUNIQUE-SE COMO UM CAMPEÃO!</strong>
+                            <span class="sentence-emoji">🏁</span>Use esses modelos como base, adicione seu toque pessoal e acelere rumo ao sucesso!
+                        </p>
+                    </div>
+                </div>
+                <div class="navigation-buttons">
+                    <button class="btn-nav prev navigateToPlaybookSection" data-target="mod7-content-section">❮ MÓDULO 7</button>
+                    <button class="btn-nav next navigateToPlaybookSection" data-target="mod9-content-section">MÓDULO 9 ❯</button>
+                </div>
             </div>
         </section>
 
-        <section id="mod9-content-section" class="playbook-sub-section hidden">
+        <!-- MÓDULO 9: DICIONÁRIO DOS MESTRES -->
+        <section id="mod9-content-section" class="playbook-sub-section hidden" data-aos="fade-up">
             <div class="container mx-auto">
-                <button class="btn-voltar-secao backToManualPitStopDetalhesBtn mb-10 text-sm">
-                    <i class="fas fa-arrow-left mr-2"></i> VOLTAR AOS MÓDULOS
+                <button class="btn-voltar-secao backToManualPitStopDetalhesBtn mb-8 text-sm">
+                    <i class="fas fa-arrow-left mr-2"></i> VOLTAR AO GUIA ESTRATÉGICO
                 </button>
-                <h2 class="playbook-content-title text-center">MÓDULO 9: DICIONÁRIO DOS MESTRES (Em Breve)</h2>
-                <p class="text-lg text-center mt-8">Conteúdo para esta seção está em desenvolvimento. Volte em breve para mais atualizações!</p>
+                <h2 class="playbook-content-title text-center"><span class="emoji-original-color">📖</span><strong>DICIONÁRIO DOS MESTRES DA PISTA: O GLOSSÁRIO AUTO ARREMATE & ARREMAQ!</strong></h2>
+                <div class="text-content-container playbook-text space-y-10 mt-8">
+                    <section id="intro-glossario" data-aos="fade-up">
+                        <h3 class="playbook-section-title !text-center" style="text-transform: uppercase;">
+                            <span class="emoji">📚</span> <strong>FALANDO A LÍNGUA DOS CAMPEÕES!</strong>
+                        </h3>
+                        <p><span class="sentence-emoji">🏎️</span>Este glossário reúne os termos mais importantes do nosso mercado. Consulte sempre que encontrar algo novo.</p>
+                    </section>
+
+                    <hr class="my-10 border-t-2 border-gray-200 dark:border-gray-700">
+
+                    <section id="glossario-termos" data-aos="fade-up">
+                        <h3 class="playbook-section-title !text-center" style="text-transform: uppercase;">
+                            <span class="emoji">🔤</span> <strong>DE A A Z: CONHEÇA OS TERMOS ESSENCIAIS</strong>
+                        </h3>
+                        <div class="glossary-container mt-6 space-y-5">
+                            <details class="interactive-section group" data-aos="fade-up">
+                                <summary class="interactive-summary-obj glossary-term">
+                                    <strong class="text-lg font-semibold text-blue-600 dark:text-blue-300"><span class="emoji text-xl">🅰️</span> Termos com A</strong>
+                                    <i class="fas fa-chevron-down text-blue-500 dark:text-blue-400 transform transition-transform duration-300 group-open:rotate-180"></i>
+                                </summary>
+                                <div class="interactive-content glossary-definition">
+                                    <p><strong>Alienação Fiduciária:</strong> garantia utilizada em financiamentos de veículos.</p>
+                                </div>
+                            </details>
+                            <details class="interactive-section group" data-aos="fade-up">
+                                <summary class="interactive-summary-obj glossary-term">
+                                    <strong class="text-lg font-semibold text-green-600 dark:text-green-300"><span class="emoji text-xl">🅱️</span> Termos com B</strong>
+                                    <i class="fas fa-chevron-down text-green-500 dark:text-green-400 transform transition-transform duration-300 group-open:rotate-180"></i>
+                                </summary>
+                                <div class="interactive-content glossary-definition">
+                                    <p><strong>B2B:</strong> Negócios realizados de empresa para empresa.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </section>
+
+                    <div class="highlight mt-10 highlight-gray" data-aos="fade-up">
+                        <p class="text-lg md:text-xl text-gray-900 dark:text-gray-100">
+                            <strong class="block text-2xl md:text-3xl mb-4 font-bold text-center tracking-wider"><span class="emoji">💡</span> DESVENDOU O CÓDIGO DA PISTA?</strong>
+                            <span class="sentence-emoji">🏁</span>Consulte este glossário sempre que precisar reforçar seu vocabulário de campeão!
+                        </p>
+                    </div>
+                </div>
+                <div class="navigation-buttons">
+                    <button class="btn-nav prev navigateToPlaybookSection" data-target="mod8-content-section">❮ MÓDULO 8</button>
+                    <button class="btn-nav next navigateToPlaybookSection" data-target="mod10-content-section">MÓDULO 10 ❯</button>
+                </div>
             </div>
         </section>
 
-        <section id="mod10-content-section" class="playbook-sub-section hidden">
+        <!-- MÓDULO 10: EVOLUÇÃO CONTÍNUA -->
+        <section id="mod10-content-section" class="playbook-sub-section hidden" data-aos="fade-up">
             <div class="container mx-auto">
-                <button class="btn-voltar-secao backToManualPitStopDetalhesBtn mb-10 text-sm">
-                    <i class="fas fa-arrow-left mr-2"></i> VOLTAR AOS MÓDULOS
+                <button class="btn-voltar-secao backToManualPitStopDetalhesBtn mb-8 text-sm">
+                    <i class="fas fa-arrow-left mr-2"></i> VOLTAR AO GUIA ESTRATÉGICO
                 </button>
-                <h2 class="playbook-content-title text-center">MÓDULO 10: EVOLUÇÃO CONTÍNUA (Em Breve)</h2>
-                <p class="text-lg text-center mt-8">Conteúdo para esta seção está em desenvolvimento. Volte em breve para mais atualizações!</p>
+                <h2 class="playbook-content-title text-center"><span class="emoji-original-color">📈</span><strong>EVOLUÇÃO CONTÍNUA: NOSSO PLAYBOOK <span class="text-aa-green-darker">AUTO ARREMATE</span> & <span class="text-arremaq-orange-darker">ARREMAQ</span> EM CONSTANTE APERFEIÇOAMENTO!</strong></h2>
+                <div class="text-content-container playbook-text space-y-10 mt-8">
+                    <section id="intro-melhoria-continua" data-aos="fade-up">
+                        <h3 class="playbook-section-title !text-center" style="text-transform: uppercase;">
+                            <span class="emoji">📈</span> <strong>UM GUIA QUE ACELERA COM VOCÊ: SEMPRE EM APERFEIÇOAMENTO!</strong>
+                        </h3>
+                        <p><span class="sentence-emoji">🛠️</span>Um Guia Estratégico nunca está finalizado. Ele é atualizado constantemente com novas práticas e aprendizados da pista.</p>
+                    </section>
+
+                    <hr class="my-10 border-t-2 border-gray-200 dark:border-gray-700">
+
+                    <section id="proximos-capitulos" data-aos="fade-up">
+                        <h3 class="playbook-section-title !text-center" style="text-transform: uppercase;">
+                            <span class="emoji">🗺️</span> <strong>AS PRÓXIMAS VOLTAS DA NOSSA SAGA</strong>
+                        </h3>
+                        <ul class="playbook-list grid md:grid-cols-2 gap-6 mt-4">
+                            <li data-emoji="⚙️" class="icp-list-item !items-start bg-gray-50 dark:bg-slate-800 p-4 rounded-lg shadow">CAPÍTULO II - A PISTA AUTOMÁTICA (AUTOMAÇÃO NO HUBSPOT)</li>
+                            <li data-emoji="🔮" class="icp-list-item !items-start bg-gray-50 dark:bg-slate-800 p-4 rounded-lg shadow">CAPÍTULO III - A CAÇA AO TESOURO (PROSPECÇÃO AVANÇADA)</li>
+                        </ul>
+                    </section>
+
+                    <div class="highlight mt-10 highlight-green" data-aos="fade-up">
+                        <p class="text-lg md:text-xl text-green-900 dark:text-green-100">
+                            <strong class="block text-2xl md:text-3xl mb-4 font-bold text-center tracking-wider"><span class="emoji">🚀</span> JUNTOS, RUMO AO PÓDIO INFINITO!</strong>
+                        </p>
+                    </div>
+                </div>
+                <div class="navigation-buttons">
+                    <button class="btn-nav prev navigateToPlaybookSection" data-target="mod9-content-section">❮ MÓDULO 9</button>
+                    <button class="btn-nav next navigateToPlaybookSection" data-target="mod11-content-section">MÓDULO 11 ❯</button>
+                </div>
             </div>
         </section>
 
-        <section id="mod11-content-section" class="playbook-sub-section hidden">
+        <!-- MÓDULO 11: CENTRAL DE COMANDO -->
+        <section id="mod11-content-section" class="playbook-sub-section hidden" data-aos="fade-up">
             <div class="container mx-auto">
-                <button class="btn-voltar-secao backToManualPitStopDetalhesBtn mb-10 text-sm">
-                    <i class="fas fa-arrow-left mr-2"></i> VOLTAR AOS MÓDULOS
+                <button class="btn-voltar-secao backToManualPitStopDetalhesBtn mb-8 text-sm">
+                    <i class="fas fa-arrow-left mr-2"></i> VOLTAR AO GUIA ESTRATÉGICO
                 </button>
-                <h2 class="playbook-content-title text-center">MÓDULO 11: CENTRAL DE COMANDO AUTO ARREMATE & ARREMAQ (Em Breve)</h2>
-                <p class="text-lg text-center mt-8">Conteúdo para esta seção está em desenvolvimento. Volte em breve para mais atualizações!</p>
+                <h2 class="playbook-content-title text-center"><span class="emoji-original-color">📞</span><strong>CENTRAL DE COMANDO (CONTATO E SUPORTE): SEU RÁDIO DIRETO COM A EQUIPE!</strong></h2>
+                <div class="text-content-container playbook-text space-y-10 mt-8">
+                    <section id="canais-contato-direto" data-aos="fade-up">
+                        <h3 class="playbook-section-title !text-center" style="text-transform: uppercase;">
+                            <span class="emoji">📡</span> <strong>SEUS CANAIS DIRETOS COM A EQUIPE DE BOX!</strong>
+                        </h3>
+                        <p class="mb-4"><span class="sentence-emoji">🎙️</span> Utilize os seguintes canais para suporte e esclarecimento de dúvidas.</p>
+
+                        <div class="contact-cards-grid grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="contact-card" data-aos="fade-up" data-aos-delay="100">
+                                <span class="contact-card-icon"><i class="fas fa-envelope"></i></span>
+                                <h4 class="contact-card-title">E-mail:</h4>
+                                <p class="contact-card-detail"><a href="mailto:liderancacomercial@autoarremate.com.br" class="text-aa-green-darker hover:underline">liderancacomercial@autoarremate.com.br</a></p>
+                            </div>
+                            <div class="contact-card" data-aos="fade-up" data-aos-delay="200">
+                                <span class="contact-card-icon"><i class="fab fa-whatsapp"></i></span>
+                                <h4 class="contact-card-title">Grupo de WhatsApp:</h4>
+                                <p class="contact-card-detail">Solicite o convite ao seu gestor.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="highlight mt-10 highlight-blue" data-aos="fade-up">
+                        <p class="text-lg md:text-xl text-blue-900 dark:text-blue-100">
+                            <strong class="block text-2xl md:text-3xl mb-4 font-bold text-center tracking-wider"><span class="emoji">🏁</span> CONECTADO É MAIS RÁPIDO!</strong>
+                        </p>
+                    </div>
+                </div>
+                <div class="navigation-buttons">
+                    <button class="btn-nav prev navigateToPlaybookSection" data-target="mod10-content-section">❮ MÓDULO 10</button>
+                    <button class="btn-nav next navigateToPlaybookSection" data-target="mod12-content-section">MÓDULO 12 ❯</button>
+                </div>
             </div>
         </section>
 
