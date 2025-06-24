@@ -181,7 +181,7 @@
         html[data-theme='dark'] #modal-close-button:hover { background: #FF8C00; color: white; }
     </style>
     <script async src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script async src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script async src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/PointerLockControls.js"></script>
     <script async src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
 </head>
 <body>
@@ -190,7 +190,7 @@
         <p>Carregando Mundo 3D...</p>
     </div>
     <div id="overlay-ui">
-        <div id="interaction-prompt" class="hidden">Clique para interagir com o módulo!</div>
+        <div id="interaction-prompt" class="hidden">Pressione E para interagir</div>
     </div>
     <div id="info-panel">
         <div>Posição: <span id="player-pos">0.0, 0.0, 0.0</span></div>
@@ -201,7 +201,7 @@
         <h2>Bem-vindo à Trilha de Aprendizado 3D!</h2>
         <p>Explore um autódromo virtual e mergulhe no conhecimento da Auto Arremate e Arremaq.</p>
         <p>Use <b>W, A, S, D</b> para mover e o <b>mouse</b> para olhar ao redor.</p>
-        <p>Aproxime-se dos módulos marcados na pista para interagir.</p>
+        <p>Aproxime-se dos módulos marcados e pressione <b>E</b> para abrir o conteúdo.</p>
         <button id="start-journey-button">Iniciar Jornada!</button>
     </div>
     <div id="module-content-modal">
@@ -214,8 +214,10 @@
         import * as THREE from 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
         let ToneJS = window.Tone;
         let scene, camera, renderer, controls;
-        let player, playerSpeed = 0.5;
-        let moveForward=false, moveBackward=false, moveLeft=false, moveRight=false;
+        let velocity = new THREE.Vector3();
+        let direction = new THREE.Vector3();
+        let prevTime = performance.now();
+        const moveState = {forward:false, backward:false, left:false, right:false};
         let currentIntersected=null; let modules=[];
         const loadingScreen=document.getElementById('loading-screen');
         const instructionOverlay=document.getElementById('instruction-overlay');
@@ -240,7 +242,8 @@
             renderer=new THREE.WebGLRenderer({antialias:true});
             renderer.setSize(window.innerWidth, window.innerHeight);
             document.body.appendChild(renderer.domElement);
-            controls=new THREE.OrbitControls(camera, renderer.domElement);
+            controls=new THREE.PointerLockControls(camera, document.body);
+            document.body.addEventListener('click',()=>{controls.lock();});
             const ambientLight=new THREE.AmbientLight(0xffffff,0.5); scene.add(ambientLight);
             const dirLight=new THREE.DirectionalLight(0xffffff,1); dirLight.position.set(10,20,10); scene.add(dirLight);
             const plane=new THREE.Mesh(new THREE.PlaneGeometry(500,500), new THREE.MeshPhongMaterial({color:0x222222}));
@@ -270,27 +273,58 @@
         }
         function onKeyDown(e){
             switch(e.code){
-                case 'KeyW': moveForward=true; break;
-                case 'KeyS': moveBackward=true; break;
-                case 'KeyA': moveLeft=true; break;
-                case 'KeyD': moveRight=true; break;
+                case 'KeyW': moveState.forward = true; break;
+                case 'KeyS': moveState.backward = true; break;
+                case 'KeyA': moveState.left = true; break;
+                case 'KeyD': moveState.right = true; break;
+                case 'KeyE':
+                    if(currentIntersected){
+                        moduleContentIframe.src=currentIntersected.userData.file;
+                        moduleContentModal.classList.add('visible');
+                    }
+                    break;
             }
         }
         function onKeyUp(e){
             switch(e.code){
-                case 'KeyW': moveForward=false; break;
-                case 'KeyS': moveBackward=false; break;
-                case 'KeyA': moveLeft=false; break;
-                case 'KeyD': moveRight=false; break;
+                case 'KeyW': moveState.forward = false; break;
+                case 'KeyS': moveState.backward = false; break;
+                case 'KeyA': moveState.left = false; break;
+                case 'KeyD': moveState.right = false; break;
             }
         }
         function animate(){
             requestAnimationFrame(animate);
-            if(moveForward) camera.position.z-=playerSpeed;
-            if(moveBackward) camera.position.z+=playerSpeed;
-            if(moveLeft) camera.position.x-=playerSpeed;
-            if(moveRight) camera.position.x+=playerSpeed;
+            const time = performance.now();
+            const delta = (time - prevTime) / 1000;
+            velocity.x -= velocity.x * 10.0 * delta;
+            velocity.z -= velocity.z * 10.0 * delta;
+            direction.z = Number(moveState.forward) - Number(moveState.backward);
+            direction.x = Number(moveState.right) - Number(moveState.left);
+            direction.normalize();
+            if(moveState.forward || moveState.backward) velocity.z -= direction.z * moveSpeed * delta;
+            if(moveState.left || moveState.right) velocity.x -= direction.x * moveSpeed * delta;
+            controls.moveRight(- velocity.x * delta);
+            controls.moveForward(- velocity.z * delta);
+            prevTime = time;
             controls.update();
+
+            let nearest=null; let minDist=6;
+            modules.forEach(m=>{
+                const d=camera.position.distanceTo(m.position);
+                if(d<minDist){minDist=d;nearest=m;}
+            });
+            if(nearest){
+                currentIntersected=nearest;
+                interactionPrompt.textContent=`Pressione E para abrir ${nearest.userData.name}`;
+                interactionPrompt.classList.remove('hidden');
+                nearbyModuleDisplay.textContent=nearest.userData.name;
+            }else{
+                currentIntersected=null;
+                interactionPrompt.classList.add('hidden');
+                nearbyModuleDisplay.textContent='Nenhum';
+            }
+
             playerPosDisplay.textContent=`${camera.position.x.toFixed(1)}, ${camera.position.y.toFixed(1)}, ${camera.position.z.toFixed(1)}`;
             renderer.render(scene, camera);
         }
@@ -299,7 +333,7 @@
             if(type==='click') synth.triggerAttackRelease('C5','8n');
         }
         moduleContentModal.addEventListener('click',e=>{ if(e.target===moduleContentModal||e.target===modalCloseButton){ moduleContentModal.classList.remove('visible'); }});
-        overlayUi.addEventListener('click', ()=>{ if(currentIntersected){ moduleContentIframe.src=currentIntersected.userData.file; moduleContentModal.classList.add('visible'); }});
+        window.addEventListener('keydown',e=>{ if(e.code==='Escape' && moduleContentModal.classList.contains('visible')){ moduleContentModal.classList.remove('visible'); }});
     </script>
 </body>
 </html>
